@@ -1,0 +1,54 @@
+:root {
+    font-family: 'Verdana', sans-serif;
+    color: snow;
+    background: midnightblue;
+    scrollbar-color: blue navy;
+    scrollbar-width: auto;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.rooms, .chat, .users {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 1em;
+}
+
+.rooms, .users {
+    flex-grow: 20;
+}
+
+.rooms {
+    border-right: solid 1px white;
+}
+
+.chat {
+    flex-grow: 100;
+}
+
+.users {
+    border-left: solid 1px white;
+    text-align: right;
+}
