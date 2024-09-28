@@ -1,0 +1,16 @@
+{
+  "name": "trollbox-electron",
+  "version": "1.0.0",
+  "description": "Desktop widnows93 trollbox client.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruxvania",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^32.1.2"
+  },
+  "type": "module"
+}
