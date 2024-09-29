@@ -2,44 +2,32 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
+	<meta charset="UTF-8" />
+	<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
+	<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
 
-  <link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="index.css">
 
-  <title>Trollbox</title>
+	<title>Trollbox</title>
 </head>
 
 <body>
-  <main>
-    <div class="rooms">
-      <span class="room">atrium</span>
-    </div>
-    <div class="chat">
-      <span class="message">
-        <span class="timestamp">10:10</span>
-        <span class="name">Ruxvania</span>
-        <span class="content">hiiiiiiiii</span>
-      </span>
-      <span class="message">
-        <span class="timestamp">10:10</span>
-        <span class="name">Ruxvania</span>
-        <span class="content">hiiiiiiiii</span>
-      </span>
-      <span class="message">
-        <span class="timestamp">10:10</span>
-        <span class="name">Ruxvania</span>
-        <span class="content">hiiiiiiiii</span>
-      </span>
-    </div>
-    <div class="users">
-      <span class="user">Ruxvania</span>
-    </div>
-  </main>
-  <script src="socket.io.js"></script>
-  <script src="index.js"></script>
+	<main>
+		<div class="rooms" id="rooms"></div>
+		<div class="chatContainer">
+			<div class="chat" id="chat"></div>
+			<div class="toolbar">
+				<button>Ruxvania</button>
+				<textarea></textarea>
+				<button>Send</button>
+			</div>
+		</div>
+		<div class="users" id="users"></div>
+	</main>
+	<script src="he.js"></script>
+	<script src="luxon.js"></script>
+	<script src="index.js" type="module"></script>
 </body>
 
 </html>

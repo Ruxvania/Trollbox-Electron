@@ -2,7 +2,7 @@
     font-family: 'Verdana', sans-serif;
     color: snow;
     background: midnightblue;
-    scrollbar-color: blue navy;
+    scrollbar-color: white transparent;
     scrollbar-width: auto;
 }
 
@@ -27,16 +27,17 @@ main {
     align-items: stretch;
 }
 
-.rooms, .chat, .users {
+.rooms, .users {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: flex-start;
     padding: 1em;
-}
-
-.rooms, .users {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: scroll;
+    resize: horizontal;
     flex-grow: 20;
 }
 
@@ -44,11 +45,68 @@ main {
     border-right: solid 1px white;
 }
 
-.chat {
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: horizontal;
     flex-grow: 100;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 1em;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: scroll;
+    flex-grow: 1;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.toolbar > * {
+    flex-grow: 1;
 }
 
 .users {
     border-left: solid 1px white;
     text-align: right;
+}
+
+.timestamp, .name, .content {
+    display: inline-block;
+}
+
+.timestamp {
+    width: 8ch;
+}
+
+.name {
+    margin-right: 0.5ch;
+}
+
+.name:after {
+    content:':';
+}
+
+.blocked {
+
+}
+
+.bot:after {
+    content: "🤖";
 }
