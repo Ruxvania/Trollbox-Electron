@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8" />
 	<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
-	<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src *;" />
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+	<meta http-equiv="X-Content-Security-Policy" content="script-src 'self';" />
 
 	<link rel="stylesheet" href="index.css">
 
@@ -16,11 +16,12 @@
 	<main>
 		<div class="rooms" id="rooms"></div>
 		<div class="chatContainer">
-			<div class="chat" id="chat"></div>
+			<div class="chat" id="chat">
+			</div>
 			<div class="toolbar">
-				<button>Ruxvania</button>
-				<textarea></textarea>
-				<button>Send</button>
+				<button id="settingsButton">Ruxvania</button>
+				<textarea id="chatInput"></textarea>
+				<button id="sendButton">Send</button>
 			</div>
 		</div>
 		<div class="users" id="users"></div>

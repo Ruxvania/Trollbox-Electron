@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
+    width: 100vw;
     height: 100vh;
     margin: 0;
 }
@@ -27,7 +28,8 @@ main {
     align-items: stretch;
 }
 
-.rooms, .users {
+.rooms,
+.users {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -36,9 +38,11 @@ main {
     padding: 1em;
     word-wrap: break-word;
     word-break: break-all;
-    overflow: scroll;
     resize: horizontal;
-    flex-grow: 20;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    width: 20vw;
 }
 
 .rooms {
@@ -51,10 +55,8 @@ main {
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: space-between;
-    word-wrap: break-word;
-    word-break: break-all;
     resize: horizontal;
-    flex-grow: 100;
+    width: 60vw;
 }
 
 .chat {
@@ -64,9 +66,9 @@ main {
     align-items: stretch;
     justify-content: flex-start;
     padding: 1em;
-    word-wrap: break-word;
-    word-break: break-all;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
     flex-grow: 1;
 }
 
@@ -76,10 +78,24 @@ main {
     flex-wrap: nowrap;
     align-items: stretch;
     justify-content: center;
+    border-top: solid 1px white;
 }
 
-.toolbar > * {
+.toolbar>* {
     flex-grow: 1;
+}
+
+.toolbar button {
+    background: midnightblue;
+    border: none;
+    color: white;
+}
+
+.toolbar textarea {
+    font-family: inherit;
+    border: solid 1px white;
+    border-style: none solid none solid;
+    outline: none;
 }
 
 .users {
@@ -87,7 +103,8 @@ main {
     text-align: right;
 }
 
-.timestamp, .name, .content {
+.timestamp,
+.name {
     display: inline-block;
 }
 
@@ -100,11 +117,19 @@ main {
 }
 
 .name:after {
-    content:':';
+    content: ':';
 }
 
-.blocked {
+.king:before {
+    content: "👑";
+}
 
+.blocked:before {
+    content: "❌";
+}
+
+.king.blocked:before {
+    content: "❌👑";
 }
 
 .bot:after {

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, Menu, ipcMain } from 'electron';
 import path from 'node:path';
 import io from "socket.io-client";
 
@@ -53,8 +53,8 @@ const createWindow = () => {
 	socket.removeAllListeners();
 
 	// Connection-related events
-	socket.on('connected', function (data) {
-		sendEventToWindow("connected", data);
+	socket.on('connect', function (data) {
+		sendEventToWindow("connect", data);
 		console.log("Connected");
 	});
 
@@ -82,7 +82,6 @@ const createWindow = () => {
 
 	socket.on('update users', function (data) {
 		sendEventToWindow("update users", data);
-		console.log(data);
 	});
 
 	socket.on('user joined', function (data) {
@@ -105,13 +104,18 @@ const createWindow = () => {
 		sendEventToWindow("cmd", data);
 		console.log("Remote command received: " + data);
 	});
-}
+};
+
+function handleSocketEmit(_event, data) {
+	socket.emit(...data);
+};
 
 app.whenReady().then(() => {
+	ipcMain.on('socketEmit', handleSocketEmit);
 	createWindow()
 
 	app.on('activate', () => {
-		if (BrowserWindow.getAllWindows().length === 0) createWindow()
+		if (BrowserWindow.getAllWindows().length === 0) createWindow();
 	})
 })
 
