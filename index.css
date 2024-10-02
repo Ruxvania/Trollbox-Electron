@@ -1,5 +1,5 @@
 :root {
-    font-family: 'Verdana', sans-serif;
+    font-family: "Comic Code Ligatures", "Comic Code", monospace;
     color: snow;
     background: midnightblue;
     scrollbar-color: white transparent;
@@ -89,6 +89,7 @@ main {
     background: midnightblue;
     border: none;
     color: white;
+    font-family: inherit;
 }
 
 .toolbar textarea {

@@ -83,17 +83,24 @@ onSocketReceive(function (event) {
 
 
 
-chatInput.onkeydown = function (element) {
-    if (element.keyCode === 13 && !element.shiftKey) sendChatInput(element);
-};
+let chatInputSent = false;
 
-sendButton.onclick = sendChatInput();
+chatInput.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter' && event.shiftKey === false) {
+        sendChatInput();
+        clearChatInput();
+    }
+});
 
 sendButton.addEventListener("click", sendChatInput);
 
 function sendChatInput() {
     if (chatInput.value !== '') {
         socketEmit("message", chatInput.value);
-        chatInput.value = "";
     };
+};
+
+function clearChatInput() {
+    chatInput.value = "";
+    chatInput.innerHTML = '';
 };
